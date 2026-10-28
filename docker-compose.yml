@@ -1,0 +1,10 @@
+services:
+  analyzer:
+    build: .
+    container_name: solana-block-order-analyzer
+    environment:
+      - SOLANA_RPC_URL=https://api.mainnet-beta.solana.com
+    volumes:
+      - ./data:/app/data
+      - ./output:/app/output
+    command: ["python", "-m", "src.dry_run"]
